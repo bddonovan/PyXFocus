@@ -4,6 +4,7 @@
 *.so
 *.so.dSYM/
 *.pyd
+*.f95~
 # Ignore the DS Store and needed import __init__.pyc
 *.DS_Store
 *.xml
