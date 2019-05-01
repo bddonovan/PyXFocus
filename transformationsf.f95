@@ -215,7 +215,7 @@ subroutine radgrat(x,y,l,m,n,wave,num,dpermm,order)
     !Compute local d spacing in nm
     d = dpermm * sqrt(y(i)**2 + x(i)**2)
     !Compute local yaw
-    yaw = -pi/2 - atan2(x(i),y(i))
+    yaw = pi/2 - atan(-x(i)/abs(y(i)))
     !print *, yaw
     !read *, dum
     !print *, x(i),y(i),d,yaw
