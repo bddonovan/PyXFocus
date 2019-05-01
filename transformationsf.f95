@@ -204,7 +204,7 @@ subroutine radgrat(x,y,l,m,n,wave,num,dpermm,order)
   real*8, intent(inout) :: l(num),m(num),n(num)
   real*8, intent(in) :: dpermm,wave,order
   integer :: i
-  real*8 :: d, yaw, pi, dum, det, sn
+  real*8 :: d, yaw, pi, sn
 
   pi = acos(-1.)
 
@@ -216,8 +216,6 @@ subroutine radgrat(x,y,l,m,n,wave,num,dpermm,order)
     d = dpermm * sqrt(y(i)**2 + x(i)**2)
     !Compute local yaw
     yaw = pi/2 - atan(-x(i)/abs(y(i)))
-    !print *, yaw
-    !read *, dum
     !print *, x(i),y(i),d,yaw
     !print *, l(i),m(i),n(i)
 
@@ -250,9 +248,9 @@ subroutine radgratW(x,y,l,m,n,wave,num,dpermm,order)
     !Compute local d spacing in nm
     d = dpermm * sqrt(y(i)**2 + x(i)**2)
     !Compute local yaw
-    sn = y(i) / abs(y(i))
+    sn = n(i) / abs(n(i))
     !yaw = pi/2 + atan(x(i)/abs(y(i)))
-    yaw = -pi/2 - atan2(x(i),y(i))
+    yaw = pi/2 - atan(x(i)/abs(y(i)))
     !print *, x(i),y(i),d,yaw
     !print *, l(i),m(i),n(i)
 
